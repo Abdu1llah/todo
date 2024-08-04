@@ -28,7 +28,6 @@
         }
         .container {
             display: flex;
-            flex-direction: row;
             min-height: 100vh;
         }
         .sidebar {
@@ -289,21 +288,6 @@
             text-decoration: none;
             cursor: pointer;
         }
-
-        /* استعلامات الوسائط (Media Queries) لضبط الأنماط بناءً على حجم الشاشة */
-        @media (max-width: 1200px) {
-            .header h1 {
-                font-size: 22px;
-            }
-            .header-actions .btn {
-                padding: 6px 12px;
-            }
-            .task-input input, .task-input select, .task-input button {
-                font-size: 14px;
-                padding: 10px;
-            }
-        }
-
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -312,49 +296,10 @@
                 width: 100%;
                 margin-bottom: 20px;
             }
-            .header h1 {
-                font-size: 20px;
-            }
-            .header-actions .btn {
-                padding: 5px 10px;
-                font-size: 14px;
-            }
-            .task-input {
-                flex-direction: column;
-            }
-            .task-input input, .task-input select, .task-input button {
-                font-size: 14px;
-                padding: 10px;
-                margin-bottom: 10px;
-            }
             .filters {
                 flex-wrap: wrap;
             }
             .filter-btn {
-                margin-bottom: 5px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 18px;
-            }
-            .header-actions .btn {
-                padding: 4px 8px;
-                font-size: 12px;
-            }
-            .task-input input, .task-input select, .task-input button {
-                font-size: 12px;
-                padding: 8px;
-                margin-bottom: 8px;
-            }
-            .filters {
-                flex-direction: column;
-                align-items: center;
-            }
-            .filter-btn {
-                width: 100%;
-                text-align: center;
                 margin-bottom: 5px;
             }
         }
@@ -473,7 +418,7 @@
                     taskItem.classList.add('task-item');
                     if (task.completed) taskItem.classList.add('completed');
 
-                    taskItem.innerHTML = `
+                    taskItem.innerHTML = 
                         <span class="checkbox-custom" onclick="toggleTask(${task.id})"></span>
                         <span class="task-text">${task.text}</span>
                         <span class="due-date">${task.dueDate}</span>
@@ -482,7 +427,7 @@
                             <button class="edit-btn" onclick="editTask(${task.id})"><i class="fas fa-edit"></i></button>
                             <button class="delete-btn" onclick="deleteTask(${task.id})"><i class="fas fa-trash-alt"></i></button>
                         </div>
-                    `;
+                    ;
                     taskList.appendChild(taskItem);
                 });
             }
